@@ -5,4 +5,4 @@ FROM httpd:alpine
 COPY ./static-website /usr/local/apache2/htdocs/
 
 # Expose the desired port (e.g., 5000)
-EXPOSE 5048
+EXPOSE 5049
