@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-website-deployment
+  labels:
+    app: static-website
+spec:
+  replicas: 2  # Number of instances of the pod (for scalability)
+  selector:
+    matchLabels:
+      app: static-website
+  template:
+    metadata:
+      labels:
+        app: static-website
+    spec:
+      containers:
+        - name: apache-static-website
+          image: hiteshdocker31/static_website_apache:v1  # Replace with your Docker image
+          ports:
+            - containerPort: 80  # The container will expose port 80 for HTTP traffic
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+---
