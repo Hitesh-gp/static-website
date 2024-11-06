@@ -1,10 +1,8 @@
-# Use the official Apache HTTP Server image from the Docker Hub
+# Use an official Apache HTTP Server image as the base image
 FROM httpd:alpine
 
-# Copy the website files from the current directory to the Apache web root
-COPY . /usr/local/apache2/htdocs/
+# Copy the static website files into the appropriate Apache directory
+COPY ./static-website /usr/local/apache2/htdocs/
 
-# Expose port 80 to access the website
-EXPOSE 5044
-
-# The default command is already set to run Apache, so no need to add CMD
+# Expose the desired port (e.g., 5000)
+EXPOSE 5048
